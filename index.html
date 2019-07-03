@@ -54,17 +54,17 @@
       });
 
       $("#choice2").on("click", function(){
-        (randNum === 1)?$("#result").text("You Got it!!! Refresh to try again."):$("#result").text("WRONG WRONG WRONG! Refresh to try again.");
+        (randNum === 2)?$("#result").text("You Got it!!! Refresh to try again."):$("#result").text("WRONG WRONG WRONG! Refresh to try again.");
         $("#random-button").html("<h1>" + randNum + "<h1>");
       });
 
       $("#choice3").on("click", function(){
-        (randNum === 1)?$("#result").text("You Got it!!! Refresh to try again."):$("#result").text("You need to practice being smarter. Refresh to try again.");
+        (randNum === 3)?$("#result").text("You Got it!!! Refresh to try again."):$("#result").text("You need to practice being smarter. Refresh to try again.");
         $("#random-button").html("<h1>" + randNum + "<h1>");
       });
 
       $("#choice4").on("click", function(){
-        (randNum === 1)?$("#result").text("You Got it!!! Refresh to try again."):$("#result").text("Maybe number guessing is not for you. Refresh to try again.");
+        (randNum === 4)?$("#result").text("You Got it!!! Refresh to try again."):$("#result").text("Maybe number guessing is not for you. Refresh to try again.");
         $("#random-button").html("<h1>" + randNum + "<h1>");
       });
 
