@@ -1,80 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Trigger Random</title>
-  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Added link to the jQuery Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-  <!-- Added a link to Bootstrap-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Trigger Random</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
 </head>
+
 <body>
 
-  <div class="jumbotron">
+    <div class="jumbotron">
 
-    <h1 class="text-center">Guess the number</h1>
+        <h1 class="text-center">Guess the number</h1>
 
-    <div class="text-center">
+        <div class="text-center">
 
-      <!-- Here we have our button for generating random numbers (#random-button) -->
-      <button id="random-button" class="btn btn-primary btn-lg"><h1><span class="fa fa-question"></span></h1></button>
-      
+            <!-- Here we have our button for generating random numbers (#random-button) -->
+            <button id="random-button" class="btn btn-primary btn-lg">
+                <h1><span class="fa fa-question"></span></h1>
+            </button>
+
+        </div>
+
+
+
     </div>
 
-    
-
-  </div>
-
-  <h1 class="text-center">Choose a number...</h1>
+    <h1 class="text-center">Choose a number...</h1>
     <div class="choices text-center">
-        <button id="choice1" class="btn btn-primary btn-lg"><h1>1</h1></button>
-        <button id="choice2" class="btn btn-primary btn-lg"><h1>2</h1></button>
-        <button id="choice3" class="btn btn-primary btn-lg"><h1>3</h1></button>
-        <button id="choice4" class="btn btn-primary btn-lg"><h1>4</h1></button>
+        <button id="choice1" class="btn btn-primary btn-lg">
+            <h1>1</h1>
+        </button>
+        <button id="choice2" class="btn btn-primary btn-lg">
+            <h1>2</h1>
+        </button>
+        <button id="choice3" class="btn btn-primary btn-lg">
+            <h1>3</h1>
+        </button>
+        <button id="choice4" class="btn btn-primary btn-lg">
+            <h1>4</h1>
+        </button>
     </div>
 
     <br><br>
-  <!-- Here we have div called "random-number" where our random number will go -->
-  <h1 class="text-center" id="result"></h1>
+    <!-- Here we have div called "random-number" where our random number will go -->
+    <h1 class="text-center" id="result"></h1>
 
-  <script type="text/javascript">
-    var randNum = Math.floor(Math.random() * 4) + 1;
+    <script type="text/javascript">
+        var randNum = Math.floor(Math.random() * 4) + 1;
 
-    $(document).ready(function() {
+        $(document).ready(function () {
 
-      // CREATE THE MISSING CODE HERE. Your code should add content to the random-number div.
-      // ...
-      $("#choice1").on("click", function(){
-         (randNum === 1)?$("#result").text("You Got it!!! Refresh to try again."):$("#result").text("I guess your are not psychic. Refresh to try again.");
-         $("#random-button").html("<h1>" + randNum + "<h1>");
-      });
+            // CREATE THE MISSING CODE HERE. Your code should add content to the random-number div.
+            // ...
+            $("#choice1").on("click", function () {
+                (randNum === 1) ? $("#result").text("You Got it!!! Refresh to try again."): $("#result")
+                    .text("I guess your are not psychic. Refresh to try again.");
+                $("#random-button").html("<h1>" + randNum + "<h1>");
+                disableBtns();
+            });
 
-      $("#choice2").on("click", function(){
-        (randNum === 2)?$("#result").text("You Got it!!! Refresh to try again."):$("#result").text("WRONG WRONG WRONG! Refresh to try again.");
-        $("#random-button").html("<h1>" + randNum + "<h1>");
-      });
+            $("#choice2").on("click", function () {
+                (randNum === 2) ? $("#result").text("You Got it!!! Refresh to try again."): $("#result")
+                    .text("WRONG WRONG WRONG! Refresh to try again.");
+                $("#random-button").html("<h1>" + randNum + "<h1>");
+                disableBtns();
+            });
 
-      $("#choice3").on("click", function(){
-        (randNum === 3)?$("#result").text("You Got it!!! Refresh to try again."):$("#result").text("You need to practice being smarter. Refresh to try again.");
-        $("#random-button").html("<h1>" + randNum + "<h1>");
-      });
+            $("#choice3").on("click", function () {
+                (randNum === 3) ? $("#result").text("You Got it!!! Refresh to try again."): $("#result")
+                    .text("You need to practice being smarter. Refresh to try again.");
+                $("#random-button").html("<h1>" + randNum + "<h1>");
+                disableBtns();
+            });
 
-      $("#choice4").on("click", function(){
-        (randNum === 4)?$("#result").text("You Got it!!! Refresh to try again."):$("#result").text("Maybe number guessing is not for you. Refresh to try again.");
-        $("#random-button").html("<h1>" + randNum + "<h1>");
-      });
+            $("#choice4").on("click", function () {
+                (randNum === 4) ? $("#result").text("You Got it!!! Refresh to try again."): $("#result")
+                    .text("Maybe number guessing is not for you. Refresh to try again.");
+                $("#random-button").html("<h1>" + randNum + "<h1>");
+                disableBtns();
+            });
 
-      
+            function disableBtns() {
+                $("#choice1").prop("disabled", true);
+                $("#choice2").prop("disabled", true);
+                $("#choice3").prop("disabled", true);
+                $("#choice4").prop("disabled", true);
+            }
 
-      // ...
 
-    });
 
-  </script>
-  
+
+            // ...
+
+        });
+    </script>
+
 </body>
+
 </html>
